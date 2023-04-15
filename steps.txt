@@ -1,0 +1,24 @@
+>> composer require simplesoftwareio/simple-qrcode
+innto the config/app.php
+ return [
+
+    'providers' => [
+        ....                
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+    ],
+    
+    'aliases' => [
+        ....                
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    ]
+
+
+#uses
+
+ <div class="card-body">
+                {!! QrCode::size(300)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8') !!}
+            </div>
+
+ <div class="card-body">
+                {!! QrCode::size(300)->backgroundColor(255,90,0)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8') !!}
+            </div>
